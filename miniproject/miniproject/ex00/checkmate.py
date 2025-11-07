@@ -1,5 +1,5 @@
 def checkmate(board_str: str):
-    try:
+                
         # กระดาน
         rows = [r.rstrip() for r in board_str.strip().split("\n") if r.strip()]
         board = [list(r) for r in rows]
@@ -72,14 +72,10 @@ def checkmate(board_str: str):
         for dx, dy in knight_moves:
             x, y = kx + dx, ky + dy
             if in_bounds(x, y) and board[x][y] == "N":
-                # ถ้าสำเร็จ
+
                 print("Success")
                 return
+             
 
-        # ถ้าไม่สำเร็จ
-        print("Fail")
-
-    except Exception:
-        print("Error")
-
-
+            
+            print("Fail")
