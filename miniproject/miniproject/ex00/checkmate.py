@@ -1,6 +1,6 @@
 def checkmate(board_str: str):
                 
-        # กระดาน
+
         rows = [r.rstrip() for r in board_str.strip().split("\n") if r.strip()]
         board = [list(r) for r in rows]
         n = len(board)
@@ -9,7 +9,7 @@ def checkmate(board_str: str):
             print("Error")
             return
 
-        # King
+
         king_pos = None
         for i in range(n):
             for j in range(n):
@@ -28,7 +28,7 @@ def checkmate(board_str: str):
         def in_bounds(x, y):
             return 0 <= x < n and 0 <= y < n
 
-        # Pawn 
+
         pawn_dirs = [(1, -1), (1, 1)]
         for dx, dy in pawn_dirs:
             x, y = kx + dx, ky + dy
@@ -36,7 +36,7 @@ def checkmate(board_str: str):
                 print("Success")
                 return
 
-        # Bishop / Queen 
+ 
         for dx, dy in [(-1, -1), (-1, 1), (1, -1), (1, 1)]:
             x, y = kx + dx, ky + dy
             while in_bounds(x, y):
@@ -49,7 +49,7 @@ def checkmate(board_str: str):
                 x += dx
                 y += dy
 
-        # Rook / Queen
+
         for dx, dy in [(-1, 0), (1, 0), (0, -1), (0, 1)]:
             x, y = kx + dx, ky + dy
             while in_bounds(x, y):
@@ -62,7 +62,7 @@ def checkmate(board_str: str):
                 x += dx
                 y += dy
 
-        # Knight
+
         knight_moves = [
             (-2, -1), (-2, 1),
             (-1, -2), (-1, 2),
